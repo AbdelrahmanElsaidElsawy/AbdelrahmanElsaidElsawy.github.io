@@ -1,76 +1,38 @@
-# [ClearCareer](http://startbootstrap.com/) 
+# Abdelrahman Elsaid Elsawy
 
-[Resume](https://izzydoesizzy.github.io/resumetemplate/) is a one page creative theme for [Bootstrap](http://getbootstrap.com/) created by [Izzy Piyale-Sheard](http://izzydoesizzy.com/).
+Personal portfolio site, published via [GitHub Pages](https://pages.github.com/).
 
-## Getting Started
+**Live:** <https://abdelrahmanelsaidelsawy.github.io/>
 
-To use this theme, please take the following steps.
-1. Fork this repository on GitHub
-2. Make an edit to your site and commit the change
-3. Go to [http://YourGithubProfile.github.io/resumetemplate](http://izzydoesizzy.github.io/resumetemplate)
+Software engineer at [BeamNG GmbH](https://beamng.tech) working on
+[BeamNG.tech](https://beamng.tech) — vehicle simulation for autonomous driving
+and ADAS development. ROS/ROS2 integration, robotics, QA automation, and
+everything in between. Based in Istanbul, Turkey.
 
-## Adding a custom domain name
-There are 2 ways of adding a custom domain to your Github Pages site.
+## Links
 
-#### Method 1: 
-1. Click on "Settings" under your repository
-2. Scroll down to custom domain
-3. Add your custom domain
-4. Login to your domain registrar and modify the DNS settings
-	- Add a new A Record
-		- Record Type: 	A
-		- Host: 		@
-		- Points to: 	192.30.252.153
-	- [see more details](http://stackoverflow.com/questions/23375422/how-to-setup-github-pages-to-redirect-dns-requests-from-subdomain-e-g-www-to/23375423#23375423)
+- LinkedIn: <https://www.linkedin.com/in/abdelrahman-elsaid-elsawy/>
+- GitHub: <https://github.com/AbdelrahmanElsaidElsawy>
+- Email: [a.sawy95@gmail.com](mailto:a.sawy95@gmail.com)
+- Linktree: <https://linktr.ee/abdelrahman_elsaid_elsawy>
 
-#### Method 2:
-1. In the main directory add a file named CNAME (without a file extension)
-2. Open and edit the file, and add your domain name [example.com](#)
-3. Login to your domain registrar and modify the DNS settings
-	- Add a new A Record
-		- Record Type: 	A
-		- Host: 		@
-		- Points to: 	192.30.252.153
-	- [see more details](http://stackoverflow.com/questions/23375422/how-to-setup-github-pages-to-redirect-dns-requests-from-subdomain-e-g-www-to/23375423#23375423)
+## Editing the site
 
-![Edit](/images/image1.png) ![Edit](/images/image2.png)
-![Edit](/images/image3.png) ![Edit](/images/image4.png)
+The site is a single static page (`index.html`) built on
+[Bootstrap 3](https://getbootstrap.com/) with custom `css/style.css` and
+`css/timeline.css` stylesheets. No build step required:
 
+1. Edit `index.html` (and the stylesheets if needed)
+2. Push to `main` — GitHub Pages republishes automatically
 
-## Bugs and Issues
+## Template credit and license
 
-Have a bug or an issue with this theme? [Open a new issue](https://github.com/clearcareer/ResumeTemplate/issues) here on GitHub.
+This site is based on the [ClearCareer ResumeTemplate](https://github.com/clearcareer/ResumeTemplate)
+by [Iskender Piyale-Sheard](https://izzydoesizzy.com/), with a timeline by
+[Bruno Rodriguez](https://github.com/itbruno).
 
-## Copyright and License
+Design released under the [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
+license. Background photos from [Unsplash](https://unsplash.com/)
+([@reddangelo16](https://unsplash.com/@reddangelo16)).
 
-Copyright 2016 ClearCareer. Code released under the [Creative Commons 4.0](https://creativecommons.org/licenses/by/4.0/) license.
-
-
-## Attribution
-
-[IconMoon](https://icomoon.io/)  
-[FontAwesome](http://fontawesome.io/)  
-
-This resume template uses the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-Bruno Rodriguez - Timeline  
-- [Github: https://github.com/itbruno](https://github.com/itbruno)
-- [Twitter: https://twitter.com/_brunoweb](https://twitter.com/_brunoweb)
-
-Train Tracks Photo https://unsplash.com/@reddangelo16
-
-
-<hr>
-
-This project was developed by **Iskender Piyale-Sheard (aka: Izzy)**, the Community Manager at [Lighthouse Labs](http://bit.ly/izzydoesizzygithub) as a fun side project. 
-
-Come say hi on Twitter [@izzydoesizzy](http://www.twitter.com/izzydoesizzy)! 
-
-----
-> Iskender Piyale-Sheard: [www.izzydoesizzy.com](https://www.izzydoesizzy.com/) &nbsp;&middot;&nbsp;
-> LinkedIn: [@izzydoesizzy](https://www.linkedin.com/in/izzydoesizzy) &nbsp;&middot;&nbsp;
-> Twitter: [@izzydoesizzy](https://twitter.com/izzydoesizzy)
-
- 
-
- 
+Icons by [LinearIcons](https://linearicons.com/) and [FontAwesome](https://fontawesome.io/).
