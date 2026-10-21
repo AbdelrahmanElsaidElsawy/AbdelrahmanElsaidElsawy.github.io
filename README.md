@@ -25,6 +25,14 @@ The site is a single static page (`index.html`) built on
 1. Edit `index.html` (and the stylesheets if needed)
 2. Push to `main` — GitHub Pages republishes automatically
 
+## CV
+
+The CV LaTeX source lives in `cv/cv.tex`. A GitHub Action
+(`.github/workflows/build-cv.yml`) recompiles it to
+`cv/Abdelrahman_Elsaid_Elsawy_CV.pdf` on every change and commits the PDF
+back, so the View/Download CV buttons always serve the latest build:
+<https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf>
+
 ## Template credit and license
 
 This site is based on the [ClearCareer ResumeTemplate](https://github.com/clearcareer/ResumeTemplate)
