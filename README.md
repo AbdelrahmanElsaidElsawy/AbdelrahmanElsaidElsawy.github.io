@@ -27,11 +27,17 @@ The site is a single static page (`index.html`) built on
 
 ## CV
 
-The CV LaTeX source lives in `cv/cv.tex`. A GitHub Action
-(`.github/workflows/build-cv.yml`) recompiles it to
-`cv/Abdelrahman_Elsaid_Elsawy_CV.pdf` on every change and commits the PDF
-back, so the View/Download CV buttons always serve the latest build:
-<https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf>
+The CV LaTeX sources live in `cv/` — one per language:
+
+| Source | Language | PDF |
+| --- | --- | --- |
+| `cv/cv.tex` | English | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf> |
+| `cv/cv_de.tex` | German | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf> |
+| `cv/cv_tr.tex` | Turkish | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf> |
+
+A GitHub Action (`.github/workflows/build-cv.yml`) recompiles all three
+PDFs on every change and commits them back, so the View/Download CV
+buttons on the site always serve the latest build.
 
 ## Template credit and license
 
