@@ -18,11 +18,20 @@ everything in between. Based in Istanbul, Turkey.
 
 ## Editing the site
 
-The site is a single static page (`index.html`) built on
+The site is a fully translated static page in three languages, built on
 [Bootstrap 3](https://getbootstrap.com/) with custom `css/style.css` and
 `css/timeline.css` stylesheets. No build step required:
 
-1. Edit `index.html` (and the stylesheets if needed)
+| Page | Language |
+| --- | --- |
+| `index.html` | English |
+| `index_de.html` | Deutsch |
+| `index_tr.html` | Türkçe |
+
+Each page's View/Download CV buttons serve the matching language PDF.
+Switch languages via the flag switcher (top-left).
+
+1. Edit the pages (keep the three in sync when changing content)
 2. Push to `main` — GitHub Pages republishes automatically
 
 ## CV
