@@ -36,15 +36,19 @@ Switch languages via the flag switcher (top-left).
 
 ## CV
 
-The CV LaTeX sources live in `cv/` — one per language:
+The CV LaTeX sources live in `cv/`:
 
-| Source | Language | PDF |
+| Source | Variant | PDF |
 | --- | --- | --- |
-| `cv/cv.tex` | English | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf> |
-| `cv/cv_de.tex` | German | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf> |
-| `cv/cv_tr.tex` | Turkish | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf> |
+| `cv/cv.tex` | English designed (color + LinkedIn QR) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf> |
+| `cv/cv_ats.tex` | English ATS (plain one-column) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf> |
+| `cv/cv_de.tex` | German designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf> |
+| `cv/cv_tr.tex` | Turkish designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf> |
 
-A GitHub Action (`.github/workflows/build-cv.yml`) recompiles all three
+Use the **ATS** PDF for Workday/Greenhouse/Lever and other automated portals.
+Use the **designed** PDF when sending directly to a recruiter or hiring manager.
+
+A GitHub Action (`.github/workflows/build-cv.yml`) recompiles all CV
 PDFs on every change and commits them back, so the View/Download CV
 buttons on the site always serve the latest build.
 
