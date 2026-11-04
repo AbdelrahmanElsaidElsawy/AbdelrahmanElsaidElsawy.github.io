@@ -31,10 +31,24 @@ jobs:
           set -e
           mkdir -p cv
           rm -f cv/*.tex
-          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf cv/
-          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf cv/
-          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf cv/
-          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf cv/
+          for f in \
+            Abdelrahman_Elsaid_Elsawy_CV.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_DE.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_DE_ATS.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_TR.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_TR_ATS.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_FR.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_FR_ATS.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_AR.pdf \
+            Abdelrahman_Elsaid_Elsawy_CV_AR_ATS.pdf
+          do
+            if [ -f "_cv_src/cv/$f" ]; then
+              cp "_cv_src/cv/$f" "cv/$f"
+            else
+              echo "Missing in source (will skip until built): $f"
+            fi
+          done
           printf '%s\n' \
             '# CV PDFs (synced)' \
             '' \
@@ -49,11 +63,7 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cv/Abdelrahman_Elsaid_Elsawy_CV.pdf \
-                  cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf \
-                  cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf \
-                  cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf \
-                  cv/README.md
+          git add cv/*.pdf cv/README.md
           git rm -f --ignore-unmatch cv/*.tex
           if git diff --staged --quiet; then
             echo "CV PDFs unchanged"

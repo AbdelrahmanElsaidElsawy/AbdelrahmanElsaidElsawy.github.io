@@ -18,7 +18,7 @@ everything in between. Based in Istanbul, Turkey.
 
 ## Editing the site
 
-The site is a fully translated static page in three languages, built on
+The site is a fully translated static page in five languages, built on
 [Bootstrap 3](https://getbootstrap.com/) with custom `css/style.css` and
 `css/timeline.css` stylesheets. No build step required:
 
@@ -26,12 +26,14 @@ The site is a fully translated static page in three languages, built on
 | --- | --- |
 | `index.html` | English |
 | `index_de.html` | Deutsch |
+| `index_fr.html` | Français |
 | `index_tr.html` | Türkçe |
+| `index_ar.html` | العربية (RTL) |
 
-Each page's View/Download CV buttons serve the matching language PDF.
-Switch languages via the flag switcher (top-left).
+Each page's View/Download CV buttons serve the matching language PDF
+(designed + ATS). Switch languages via the flag switcher.
 
-1. Edit the pages (keep the three in sync when changing content)
+1. Edit the pages (keep the five in sync when changing content)
 2. Push to `main` — GitHub Pages republishes automatically
 
 ## CV
@@ -43,10 +45,16 @@ GitHub Pages (workflow: `.github/workflows/sync-cv.yml`).
 
 | Variant | Site PDF |
 | --- | --- |
-| English designed (color + LinkedIn QR) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf> |
-| English ATS (plain one-column) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf> |
+| English designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf> |
+| English ATS | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf> |
 | German designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf> |
+| German ATS | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_DE_ATS.pdf> |
+| French designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_FR.pdf> |
+| French ATS | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_FR_ATS.pdf> |
 | Turkish designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf> |
+| Turkish ATS | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_TR_ATS.pdf> |
+| Arabic designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_AR.pdf> |
+| Arabic ATS | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_AR_ATS.pdf> |
 
 Use the **ATS** PDF for Workday/Greenhouse/Lever and other automated portals.
 Use the **designed** PDF when sending directly to a recruiter or hiring manager.
