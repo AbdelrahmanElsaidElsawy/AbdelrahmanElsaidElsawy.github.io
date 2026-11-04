@@ -1,0 +1,63 @@
+name: Sync CV
+
+# CV LaTeX lives only in AbdelrahmanElsaidElsawy/cv.
+# This workflow copies the built PDFs into this site for GitHub Pages.
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [cv-updated]
+  schedule:
+    - cron: '20 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v4
+
+      - name: Checkout CV source
+        uses: actions/checkout@v4
+        with:
+          repository: AbdelrahmanElsaidElsawy/AbdelrahmanElsaidElsawy
+          path: _cv_src
+
+      - name: Copy PDFs only
+        run: |
+          set -e
+          mkdir -p cv
+          rm -f cv/*.tex
+          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf cv/
+          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf cv/
+          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf cv/
+          cp _cv_src/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf cv/
+          printf '%s\n' \
+            '# CV PDFs (synced)' \
+            '' \
+            'LaTeX sources and the build workflow live in' \
+            '[AbdelrahmanElsaidElsawy](https://github.com/AbdelrahmanElsaidElsawy/AbdelrahmanElsaidElsawy)/cv.' \
+            'Do not edit PDFs here; change the `.tex` files there and let Actions rebuild,' \
+            'then re-run **Sync CV** on this repo (or wait for the hourly sync).' \
+            > cv/README.md
+
+      - name: Publish synced PDFs
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cv/Abdelrahman_Elsaid_Elsawy_CV.pdf \
+                  cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf \
+                  cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf \
+                  cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf \
+                  cv/README.md
+          git rm -f --ignore-unmatch cv/*.tex
+          if git diff --staged --quiet; then
+            echo "CV PDFs unchanged"
+          else
+            git commit -m "Sync CV PDFs from profile repo [skip ci]"
+            git push
+          fi

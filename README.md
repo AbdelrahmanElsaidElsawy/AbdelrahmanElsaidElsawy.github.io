@@ -36,21 +36,20 @@ Switch languages via the flag switcher (top-left).
 
 ## CV
 
-The CV LaTeX sources live in `cv/`:
+**Single source of truth:** edit LaTeX only in
+[`AbdelrahmanElsaidElsawy/cv`](https://github.com/AbdelrahmanElsaidElsawy/AbdelrahmanElsaidElsawy/tree/main/cv).
+That repo builds the PDFs. This site only syncs those PDFs into `cv/` for
+GitHub Pages (workflow: `.github/workflows/sync-cv.yml`).
 
-| Source | Variant | PDF |
-| --- | --- | --- |
-| `cv/cv.tex` | English designed (color + LinkedIn QR) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf> |
-| `cv/cv_ats.tex` | English ATS (plain one-column) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf> |
-| `cv/cv_de.tex` | German designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf> |
-| `cv/cv_tr.tex` | Turkish designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf> |
+| Variant | Site PDF |
+| --- | --- |
+| English designed (color + LinkedIn QR) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV.pdf> |
+| English ATS (plain one-column) | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_ATS.pdf> |
+| German designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_DE.pdf> |
+| Turkish designed | <https://abdelrahmanelsaidelsawy.github.io/cv/Abdelrahman_Elsaid_Elsawy_CV_TR.pdf> |
 
 Use the **ATS** PDF for Workday/Greenhouse/Lever and other automated portals.
 Use the **designed** PDF when sending directly to a recruiter or hiring manager.
-
-A GitHub Action (`.github/workflows/build-cv.yml`) recompiles all CV
-PDFs on every change and commits them back, so the View/Download CV
-buttons on the site always serve the latest build.
 
 ## Template credit and license
 
