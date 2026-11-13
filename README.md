@@ -18,22 +18,24 @@ everything in between. Based in Istanbul, Turkey.
 
 ## Editing the site
 
-The site is a fully translated static page in five languages, built on
-[Bootstrap 3](https://getbootstrap.com/) with custom `css/style.css` and
-`css/timeline.css` stylesheets. No build step required:
+Two-column layout: sticky left sidebar (photo, bio, contacts, nav) and a
+right panel that is a **separate HTML page** per topic (`css/style.css`,
+`css/timeline.css`). Bootstrap 3 is still loaded for legacy grid helpers.
+No build step required.
 
-| Page | Language |
-| --- | --- |
-| `index.html` | English |
-| `index_de.html` | Deutsch |
-| `index_fr.html` | Français |
-| `index_tr.html` | Türkçe |
-| `index_ar.html` | العربية (RTL) |
+| Topic | EN | DE | FR | TR | AR |
+| --- | --- | --- | --- | --- | --- |
+| About | `index.html` | `index_de.html` | `index_fr.html` | `index_tr.html` | `index_ar.html` |
+| Skills | `skills.html` | `skills_de.html` | `skills_fr.html` | `skills_tr.html` | `skills_ar.html` |
+| Languages | `languages.html` | `languages_de.html` | … | … | … |
+| Courses | `courses.html` | `courses_de.html` | … | … | … |
+| Experience | `experience.html` | `experience_de.html` | … | … | … |
+| Studies | `studies.html` | `studies_de.html` | … | … | … |
 
-Each page's View/Download CV buttons serve the matching language PDF
-(designed + ATS). Switch languages via the flag switcher.
+CV buttons serve the matching language PDF (designed + ATS). The flag
+switcher jumps to the same topic in another language.
 
-1. Edit the pages (keep the five in sync when changing content)
+1. Edit the matching page(s); keep language variants in sync for shared changes
 2. Push to `main` — GitHub Pages republishes automatically
 
 ## CV
