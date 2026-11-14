@@ -13,15 +13,18 @@ everything in between. Based in Istanbul, Turkey.
 
 - LinkedIn: <https://www.linkedin.com/in/abdelrahman-elsaid-elsawy/>
 - GitHub: <https://github.com/AbdelrahmanElsaidElsawy>
-- Email: [a.sawy95@gmail.com](mailto:a.sawy95@gmail.com)
+- Email: [abdelrahman.elsaid.elsawy@gmail.com](mailto:abdelrahman.elsaid.elsawy@gmail.com)
 - Linktree: <https://linktr.ee/abdelrahman_elsaid_elsawy>
 
 ## Editing the site
 
-Two-column layout: sticky left sidebar (photo, bio, contacts, nav) and a
-right panel that is a **separate HTML page** per topic (`css/style.css`,
-`css/timeline.css`). Bootstrap 3 is still loaded for legacy grid helpers.
-No build step required.
+Layout inspired by <https://merielvonstein.com/>: a dark masthead carries the
+site title, page nav and flag switcher; below it a narrow sticky author column
+(photo, tagline, one-line bio, contact links, CV buttons) sits beside the topic
+panel, which is a **separate HTML page** per topic (`css/style.css`,
+`css/timeline.css`). Bootstrap 3 is still loaded for legacy grid helpers, but
+its `html { font-size: 10px }` is overridden back to 16px. No build step
+required.
 
 | Topic | EN | DE | FR | TR | AR |
 | --- | --- | --- | --- | --- | --- |
