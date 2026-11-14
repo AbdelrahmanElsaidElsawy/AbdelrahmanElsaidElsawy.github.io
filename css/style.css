@@ -1,698 +1,907 @@
 /**
- * =================================================================== 
+ * Minimal academic-style portfolio layout, inspired by merielvonstein.com
+ * (Minimal Mistakes author layout):
+ *   1. dark masthead: site title + horizontal nav + language switch
+ *   2. narrow sticky author column: photo, name, tagline, one-line bio,
+ *      contact links, CV buttons
+ *   3. prose column: serif section headings ruled with a teal underline
+ *   4. light footer band with muted follow links
  *
- *  ResumeTemplate v1.0 ClearCareer
- *  url: clearcareer.ca
- *  Design by: Iskender Piyale-Sheard
- *  website: izzydoesizzy.com
- *  Created 06-27-2016
- *  Last Updated: 03-19-2017
- *  ------------------------------------------------------------------
- *  Table of Contents:
-
- *  01. Global Styles
- *  02. Intro
- *  03. Social Icons
- *  04. Icon Fonts
- *  05. Section Styles
- *  06. Timeline Styles
- *  05. Footer
- EXTRAS
-
- * =================================================================== 
+ * Typography follows the reference: Inter for UI/body, Source Serif 4 for
+ * headings.
  */
 
-/* 01. Basic Styles
- * =================================================================== */
+:root {
+  --navy: #2c3e50;
+  --accent: #0d9488;
+  --accent-dark: #0a766d;
+  --heading: #2c3e50;
+  --text: #374151;
+  --muted: #6b7280;
+  --link: #0d9488;
+  --border: #e2e8f0;
+  --bg: #ffffff;
+  --footer-bg: #f7f8fa;
+  --footer-border: #a0aec0;
+  --footer-text: #95a0b0;
+  --sans: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --masthead-h: 3.6rem;
+  --sidebar-w: 205px;
+  --content-max: 985px;
+  --wide-max: 1280px;
+}
 
- html {
-    overflow-x: hidden;
- }
- body {
-    font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
- }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
- h1, h2, h3, h4 {
-    font-family: 'Dosis', 'Source Sans 3', 'Source Sans Pro', sans-serif;
-    font-weight: 500;
- }
+html {
+  /* Bootstrap 3 sets html { font-size: 10px }; restore a 16px root so the rem
+     scale below behaves as intended. */
+  font-size: 16px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
- h1 {
-    font-weight: bold;
- }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+}
 
- h5 {
-    font-weight: 600;
- }
+h1, h2, h3, h4, h5 {
+  margin: 1.6em 0 0.5em;
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--heading);
+}
 
- a {
-    cursor: pointer;
-    color: #1abc9c;
-    text-decoration: none;
- }
+a {
+  color: var(--link);
+  text-decoration: none;
+}
 
- a:hover {
-    text-decoration:none;
-    color: #1abc9c;
-    opacity: 0.9;
- }
+a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  opacity: 1;
+}
 
- hr {
-    border-top: 5px solid #1abc9c;
-    width: 80px;
-    padding-bottom: 20px;
- }
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  width: 3rem;
+  margin: 0.75rem 0 1.5rem;
+}
 
+@keyframes intro {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
 
- .colour-splash {
-    color: #1abc9c;
- }
-
- .section-primary span {
-    color: #1abc9c;
-    font-weight: bolder;
+  to {
     opacity: 1;
- }
-
-
-
-
-
-
-
-
-/* 02. Intro
- * =================================================================== */
-
- .section-image {
- 	background: #151515 url(https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?dpr=2&auto=compress,format&crop=entropy&fit=crop&w=1199&h=799&q=80) no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    text-align: center;
-    color: #fff;
-    display:table;
- }
-
- .img-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #111111;
-    opacity: .7;
- }
-
- .intro {
-    vertical-align: middle;
-    text-align: center;
-    display:table-cell;
-    -webkit-transform: translateY(-2.1rem);
-    -ms-transform: translateY(-2.1rem);
-    transform: translateY(-2.1rem);
+    transform: none;
+  }
 }
 
-.intro .row {
-    margin-right: 0;
-    margin-left:0;
+/* ---------------------------------------------------------------- masthead */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--navy);
+  border-bottom: 3px solid var(--accent);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
 }
 
-.intro h1 {
-    font-size: 84px;
+.masthead__inner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--wide-max);
+  margin: 0 auto;
+  padding: 0.45rem 1.15rem;
 }
 
-.intro h5 {
-    color: #1abc9c;
-    font-size: 2.3rem;
-    margin-bottom: 0;
-    text-transform: uppercase;
-    letter-spacing: .3rem;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+.masthead .site-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
-.section-image span {
-    text-transform: uppercase;
-    font-size: 1.4em;
-    padding: 0 10px;
-    font-weight: 100;
+.masthead .site-nav::-webkit-scrollbar {
+  display: none;
 }
 
-.section-image h1 {
-    margin-top: 0;
-}
-
-.section-image p {
-    font-weight: lighter;
-    opacity: 0.9;
-}
-
-
-
-/* 03. Social Icons
- * =================================================================== */
-
-.social {
-  margin: 0 10px;
-  padding-top: 1.3em;
-  text-align: center;
+.masthead .site-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.85rem;
   color: #fff;
-  font-size: 0.9em;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
-.social a {
-  color: white;
-  text-decoration:none;
-  padding: 2em;
+/* The teal rule only exists on hover / for the current page */
+.masthead .site-nav a::before {
+  content: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.1rem;
+  height: 3px;
+  background: var(--accent);
 }
 
-.social a:hover{
-  opacity: 0.6;
+.masthead .site-nav a:hover {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
 }
 
-.social-footer {
-    position: block;
-    padding: 15px;
+.masthead .site-nav a:hover::before,
+.masthead .site-nav a.active::before {
+  content: "";
 }
 
-.social-footer a {
-    color: white;
-    text-decoration: none;
-    padding: 0.6em;
-    font-size: 1.7em;
+.masthead .site-nav a.active {
+  color: #fff;
+  font-weight: 600;
 }
 
-
-/* 04. Icon Font
- * =================================================================== */
-
- .lnr {
-    font-size: 4em !important;
-    color:#fff;
- }
-
-/* 05. Section Styles
- * =================================================================== */
-
-section {
-    padding-top: 100px;
-    padding-bottom: 100px;
+.masthead__title {
+  margin-inline-end: 0.5rem;
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 700 !important;
 }
 
-.profilepic {
-    height: 150px;
-    width: auto;
-    border-radius: 300px;
-}
-
-.section-primary p {
-    text-align: justify;
-}
-
-.section-primary {
-    border: #1abc9c;
-}
-
-.section-colour {
-    background-color: #1abc9c;
-    color: #fff;
-}
-
-.section-colour p {
-    text-align: justify;
-}
-
-.section-heading .lead, .section-heading h2 {
-    text-align: center;
-}
-
-.section-colour {
-    border: #fff;
-}
-
-.section-colour hr {
-    border-top: 5px solid #fff;
- }
-
-
-
-/* 01. Timeline Styles
- * =================================================================== */
-
-.timeline-icon .fa {
-    color: white;
-    margin: 14px;
-    font-size: 1.7em;
-}
-
-#skills {
-    background: #151515 url(https://images.unsplash.com/photo-1456983933114-c22026990f4b?dpr=2&auto=format&crop=entropy&fit=crop&w=1280&h=720&q=80) no-repeat center center;
-    height: auto;
-}
-
-
-/* 05. Footer
- * =================================================================== */
-
-footer {
-    display: block;
-    position: static;
-    bottom: 0;
-    background-color: black;
-    color: #fff;
-    padding: 50px 0;
-
-}
-
-footer p {
-    padding: 15px;
-    opacity: 0.8;
-}
-
-
-/* EXTRAS
- * =================================================================== */
-
-
-
-        /* Mouse Icon
-         * =================================================================== */
-        .mouse-icon {
-            border: 2px solid #fff;
-            border-radius: 16px;
-            display: block;
-            height: 50px;
-            margin: 100px auto;
-            position: absolute;
-            left: 0;
-            right: 0;
-            width: 30px;
-            z-index: 10;
-        }
-        .mouse-icon .scroll {
-            animation-delay: 0s;
-            animation-duration: 1s;
-            animation-iteration-count: infinite;
-            animation-name: scrolling;
-            animation-play-state: running;
-            animation-timing-function: linear;
-        }
-        .mouse-icon .scroll {
-            background: #fff none repeat scroll 0 0;
-            border-radius: 10px;
-            height: 10px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            top: 4px;
-            width: 4px;
-        }
-        @keyframes scrolling {
-        0% {
-            opacity: 0;
-            top: 5px;
-        }
-        30% {
-            opacity: 1;
-            top: 10px;
-        }
-        100% {
-            opacity: 0;
-            top: 25px;
-        }
-        }
-
-        .pad-xl {
-            padding: 200px 0px;
-        }
-
-        .pad-lg {
-            padding: 160px 0px;
-        }
-
-        .pad-sm {
-            padding: 80px 0px;
-        }
-
-        .pad-xs {
-            padding: 30px 0px;
-        }
-
-        /* /Mouse Icon
-         * =================================================================== */
-
- 
-/* Media Queries
- * =================================================================== */
-
-@media (max-width: 480px) {
-    .social a {
-        padding: 0.4em;
-        font-size: 0.9em;
-    }
-
-    .social-footer {
-        text-align: center;
-        position:block;
-        text-align: center;
-    }
-
-    .social-footer a {
-        padding: 0.3em;
-        font-size: 1.6em;
-
-    }
-
-    .intro-desc {
-        font-size: 0.7em;
-    }
-
-    .section-image span {
-        font-size: 1em;
-        padding: 0 1px;
-
-}
-
-    .intro h1 {
-        font-size: 50px;
-        padding-top: 15px;
-    }
-
-    footer {
-        text-align: center;
-        padding-bottom: 100px;
-    }
-
-    #skills {
-        background: #151515 url(https://images.unsplash.com/photo-1456983933114-c22026990f4b?dpr=2&auto=format&crop=entropy&fit=crop&w=1280&h=720&q=80) no-repeat center center;
-        background-position: top center;
-
-    }
-}
-
-@media (max-width: 991px) {
-    .social-footer {
-        text-align: center;
-    }
-
-    footer p {
-    text-align: center;
-    }
-
-}
-
-/* CV Buttons
- * =================================================================== */
-
-.cv-buttons {
-    margin-top: 20px;
-}
-
-.cv-btn {
-    display: inline-block;
-    margin: 5px 8px;
-    padding: 12px 32px;
-    border: 2px solid #1abc9c;
-    border-radius: 30px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-    font-size: .95em;
-    font-weight: 600;
-}
-
-.cv-btn:hover {
-    color: #fff;
-    background: #17a689;
-    border-color: #17a689;
-}
-
-.cv-btn-solid {
-    background: #1abc9c;
-}
-
-/* Language Switcher
- * =================================================================== */
-
+/* Language switch — lives in the masthead */
 .lang-switch {
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    z-index: 1000;
-    display: flex;
-    gap: 4px;
-    padding: 6px 10px;
-    background: rgba(0, 0, 0, 0.55);
-    border-radius: 30px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
 }
 
 .lang-switch a {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    color: #fff;
-    font-size: .85em;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .lang-switch a:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  text-decoration: none;
 }
 
 .lang-switch a.active {
-    background: #1abc9c;
+  color: #fff;
+  background: var(--accent);
 }
 
 .lang-switch img {
-    width: 20px;
-    border-radius: 3px;
+  width: 14px;
+  border-radius: 2px;
 }
 
-@media (max-width: 480px) {
-    .lang-switch {
-        top: 6px;
-        left: 6px;
-        padding: 4px 6px;
-    }
-
-    .lang-switch a {
-        padding: 3px 8px;
-        font-size: .75em;
-    }
-
-    .lang-switch img {
-        width: 16px;
-    }
+/* ------------------------------------------------------------------ layout */
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.6rem;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 3rem;
+  animation: intro 0.3s both;
+  animation-delay: 0.15s;
 }
 
-/* Arabic / RTL
- * =================================================================== */
+.main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
 
+.main .container {
+  width: 100% !important;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main section[id] {
+  scroll-margin-top: calc(var(--masthead-h) + 1rem);
+}
+
+/* Bootstrap row/col reset — the columns become stacked or grid items */
+/* Bootstrap 3 clearfix pseudo-elements would become grid items */
+.row,
+.container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row::before,
+.row::after,
+.main .container::before,
+.main .container::after {
+  display: none;
+  content: none;
+}
+
+.row {
+  display: block;
+}
+
+.skill-card-row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.col-md-4,
+.col-md-6,
+.col-md-8,
+.col-md-12,
+.col-md-offset-2,
+.col-md-offset-3 {
+  width: 100% !important;
+  float: none !important;
+  margin-left: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* -------------------------------------------------------- author (sidebar) */
+.sidebar {
+  position: sticky;
+  top: calc(var(--masthead-h) + 1.25rem);
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  max-height: calc(100vh - var(--masthead-h) - 2.5rem);
+  overflow-y: auto;
+  padding: 0;
+  font-family: var(--sans);
+  z-index: 20;
+}
+
+.sidebar .profilepic {
+  display: block;
+  width: 100%;
+  max-width: 175px;
+  height: auto;
+  margin: 0 0 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar .greeting {
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sidebar h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.22rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--heading);
+}
+
+.sidebar .intro-desc {
+  margin: 0 0 0.8rem;
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.sidebar .intro-desc span {
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  padding: 0;
+}
+
+.sidebar .intro-desc .colour-splash {
+  color: var(--footer-border);
+  padding: 0 0.1rem;
+}
+
+.sidebar .bio {
+  margin: 0 0 1.15rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.sidebar .bio p {
+  margin: 0;
+}
+
+.sidebar .bio span {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.sidebar .contact-list {
+  list-style: none;
+  margin: 0 0 1.1rem;
+  padding: 0;
+  font-size: 0.84rem;
+}
+
+.sidebar .contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin: 0 0 0.32rem;
+  color: var(--muted);
+}
+
+.sidebar .contact-list i {
+  flex: 0 0 auto;
+  width: 1.05em;
+  text-align: center;
+  color: var(--footer-border);
+}
+
+.sidebar .contact-list a {
+  min-width: 0;
+  color: var(--text);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.sidebar .contact-list a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.sidebar .cv-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0 0 1.15rem;
+}
+
+.cv-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0.34rem 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--accent-dark);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cv-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+.cv-btn-solid {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.cv-btn-solid:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* -------------------------------------------------------------- prose column */
+.main section {
+  padding: 0 0 2rem;
+  background: transparent;
+  color: var(--text);
+  height: auto !important;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.main section:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.section-primary,
+.section-colour,
+#skills.section-image {
+  background: transparent !important;
+  color: var(--text);
+  border: 0;
+}
+
+.section-heading {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.section-heading h2 {
+  margin: 0 0 0.3rem;
+  padding-bottom: 0.45em;
+  border-bottom: 2px solid var(--accent);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--heading);
+  text-align: left;
+}
+
+.section-heading .lead {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+/* The teal rule on h2 replaces the old divider */
+.section-heading hr,
+.section-heading hr.white {
+  display: none;
+}
+
+.main section a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.bio-page {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.bio-page p {
+  margin: 0 0 1.3em;
+}
+
+.bio-page p:last-child {
+  margin-bottom: 0;
+}
+
+.bio-page span {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+/* Focus list on the About page (mirrors the reference's second section) */
+.focus-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.focus-list li {
+  margin: 0 0 1.1em;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--border);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.focus-list li:last-child {
+  margin-bottom: 0;
+}
+
+.focus-list strong {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------- skills */
+.skill-card {
+  margin-bottom: 0;
+  text-align: left !important;
+}
+
+.skill-card .lnr {
+  display: none;
+}
+
+.skill-card h2 {
+  margin: 0 0 0.35rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.08rem;
+}
+
+.skill-card > p {
+  margin: 0 0 0.6rem;
+  max-width: none;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.35rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.16rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------------------- languages */
+#languages .lang-list {
+  display: grid;
+  gap: 0.35rem;
+}
+
+#languages .lang-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  box-shadow: none;
+}
+
+#languages .lang-item strong {
+  color: var(--heading);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+#languages .lang-item span {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.88rem;
+}
+
+/* ------------------------------------------------------------------ courses */
+.course-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.course-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.course-list li span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ------------------------------------------------- experience/studies items */
+#timeline .timeline-content,
+#timeline-studies .timeline-content {
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+#timeline .timeline-content h2,
+#timeline-studies .timeline-content h2 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+#timeline .timeline-item,
+#timeline-studies .timeline-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.job-meta {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+}
+
+.job-details {
+  margin-top: 0.35rem;
+}
+
+.job-details > summary {
+  display: inline-block;
+  color: var(--accent-dark);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  list-style: none;
+  user-select: none;
+}
+
+.job-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.job-details > summary::before {
+  content: "▸ ";
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.job-details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.job-details > p {
+  margin-bottom: 0;
+  padding-top: 0.45rem;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------------- footer */
+.footer,
+footer {
+  display: block;
+  clear: both;
+  margin-top: 2.5rem;
+  padding: 1.4rem 1.25rem 2rem;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  color: var(--footer-text);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+
+.footer .container {
+  width: 100% !important;
+  max-width: var(--wide-max);
+  margin: 0 auto;
+  padding: 0 0.25rem;
+}
+
+.footer p,
+footer p {
+  margin: 0 0 0.35rem;
+  opacity: 1;
+  text-align: left !important;
+}
+
+.footer a,
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer a:hover,
+footer a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.social-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+  padding: 0.15rem 0 0;
+}
+
+.social-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0;
+  color: var(--footer-text);
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.social-footer i,
+.social-footer svg {
+  color: var(--footer-text);
+}
+
+.icon-linktree {
+  display: inline-block;
+  vertical-align: -0.15em;
+  width: 1em;
+  height: 1em;
+}
+
+/* ---------------------------------------------------------------------- RTL */
 html[dir="rtl"] body,
 body.rtl {
-    font-family: "Noto Naskh Arabic", "Source Sans 3", "Source Sans Pro", sans-serif;
-    direction: rtl;
-    text-align: right;
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Naskh Arabic", var(--sans);
 }
 
 html[dir="rtl"] h1,
 html[dir="rtl"] h2,
 html[dir="rtl"] h3,
-html[dir="rtl"] h4 {
-    font-family: "Noto Naskh Arabic", "Dosis", sans-serif;
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] .masthead__title,
+html[dir="rtl"] .sidebar h1,
+html[dir="rtl"] .sidebar .intro-desc,
+html[dir="rtl"] .contact-list,
+html[dir="rtl"] .cv-btn,
+html[dir="rtl"] .greeting,
+html[dir="rtl"] .lead,
+html[dir="rtl"] .skill-card > p,
+html[dir="rtl"] .course-list,
+html[dir="rtl"] .job-meta,
+html[dir="rtl"] .job-details > summary,
+html[dir="rtl"] footer,
+html[dir="rtl"] .bio-page,
+html[dir="rtl"] .focus-list {
+  font-family: "Noto Naskh Arabic", var(--sans);
 }
 
-html[dir="rtl"] .lang-switch {
-    left: auto;
-    right: 12px;
+html[dir="rtl"] .section-heading h2,
+html[dir="rtl"] #timeline .timeline-content h2,
+html[dir="rtl"] #timeline-studies .timeline-content h2,
+html[dir="rtl"] .skill-card h2 {
+  font-family: "Source Serif 4", "Noto Naskh Arabic", Georgia, serif;
 }
 
-@media (max-width: 480px) {
-    html[dir="rtl"] .lang-switch {
-        right: 6px;
-        left: auto;
-    }
+html[dir="rtl"] .layout {
+  flex-direction: row-reverse;
 }
 
-html[dir="rtl"] .timeline-content.right,
-html[dir="rtl"] .timeline-content.left {
-    text-align: right;
+html[dir="rtl"] .masthead__title {
+  margin-inline-end: 0;
+  margin-inline-start: 0.5rem;
 }
 
-/* Course List
- * =================================================================== */
-
-.course-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 20px;
+html[dir="rtl"] .section-heading,
+html[dir="rtl"] .section-heading h2,
+html[dir="rtl"] .section-heading .lead,
+html[dir="rtl"] .main section,
+html[dir="rtl"] .skill-card,
+html[dir="rtl"] .course-list li,
+html[dir="rtl"] .focus-list li,
+html[dir="rtl"] footer p {
+  text-align: right !important;
 }
 
-.course-list li {
-    padding: 7px 0;
-    border-bottom: 1px solid #eee;
-    text-align: left;
+html[dir="rtl"] .focus-list li {
+  padding-left: 0;
+  padding-right: 1.1rem;
+  border-left: 0;
+  border-right: 3px solid var(--border);
 }
 
-/* Skills tags & languages
- * =================================================================== */
-
-.skill-card {
-    margin-bottom: 28px;
+html[dir="rtl"] .skill-tags {
+  justify-content: flex-end;
 }
 
-.skill-card > p {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    max-width: 32em;
-    margin-left: auto;
-    margin-right: auto;
+html[dir="rtl"] .job-details > summary::before {
+  content: "◂ ";
 }
 
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 7px;
-    margin-top: 12px;
-}
-
-.skill-tag {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    color: #fff;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    line-height: 1.35;
-}
-
-/* Timeline cards sit on light panels — keep body text readable */
-#timeline .timeline-content,
-#timeline-studies .timeline-content {
-    color: #333;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+html[dir="rtl"] .job-details[open] > summary::before {
+  transform: rotate(-90deg);
 }
 
 html[dir="rtl"] #timeline .timeline-content,
 html[dir="rtl"] #timeline-studies .timeline-content {
-    font-family: "Noto Naskh Arabic", "Source Sans 3", sans-serif;
+  text-align: right;
 }
 
-#timeline .timeline-content h2,
-#timeline-studies .timeline-content h2 {
-    font-family: 'Dosis', 'Source Sans 3', sans-serif;
+/* --------------------------------------------------- mobile: stack + scroll */
+@media (max-width: 900px) {
+  .masthead__inner-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.1rem;
+    padding: 0.3rem 0.75rem 0.4rem;
+  }
+
+  .masthead .site-nav {
+    font-size: 0.84rem;
+  }
+
+  .lang-switch {
+    justify-content: flex-start;
+  }
+
+  .layout,
+  html[dir="rtl"] .layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.6rem;
+    padding: 1.4rem 1.1rem 2.25rem;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .sidebar {
+    position: static;
+    top: auto;
+    width: 100%;
+    max-height: none;
+    overflow-y: visible;
+    flex: none;
+  }
+
+  .sidebar .profilepic {
+    max-width: 148px;
+  }
+
+  .section-heading h2 {
+    font-size: 1.4rem;
+  }
 }
 
-html[dir="rtl"] #timeline .timeline-content h2,
-html[dir="rtl"] #timeline-studies .timeline-content h2 {
-    font-family: "Noto Naskh Arabic", "Dosis", sans-serif;
-}
+@media (max-width: 600px) {
+  #languages .lang-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
 
-/* Foldable job descriptions on the experience timeline */
-.job-meta {
-    margin-bottom: 0;
-    font-size: 1.05rem;
-}
-
-.job-details {
-    margin-top: 6px;
-}
-
-.job-details > summary {
-    cursor: pointer;
-    display: inline-block;
-    color: #1abc9c;
-    font-weight: 600;
-    font-size: 1.05rem;
-    list-style: none;
-    user-select: none;
-}
-
-.job-details > summary::-webkit-details-marker {
-    display: none;
-}
-
-.job-details > summary::before {
-    content: "▸ ";
-    display: inline-block;
-    transition: transform 0.15s ease;
-}
-
-.job-details[open] > summary::before {
-    transform: rotate(90deg);
-}
-
-.job-details > p {
-    padding-top: 10px;
-    margin-bottom: 0;
-    color: #333;
-    font-size: 1.15rem;
-    line-height: 1.65;
-}
-
-html[dir="rtl"] .job-details > summary::before {
-    content: "◂ ";
-}
-
-html[dir="rtl"] .job-details[open] > summary::before {
-    transform: rotate(-90deg);
-}
-
-#languages .lang-list {
-    display: grid;
-    gap: 12px;
-}
-
-#languages .lang-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 18px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-#languages .lang-item strong {
-    color: #2c3e50;
-    font-size: 1.05em;
-}
-
-#languages .lang-item span {
-    color: #1abc9c;
-    font-weight: 600;
-    text-align: right;
-}
-
-html[dir="rtl"] #languages .lang-item span {
-    text-align: left;
-}
-
-@media (max-width: 767px) {
-    #languages .lang-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    html[dir="rtl"] #languages .lang-item {
-        align-items: flex-end;
-    }
+  html[dir="rtl"] #languages .lang-item {
+    align-items: flex-end;
+  }
 }

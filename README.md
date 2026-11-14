@@ -13,27 +13,32 @@ everything in between. Based in Istanbul, Turkey.
 
 - LinkedIn: <https://www.linkedin.com/in/abdelrahman-elsaid-elsawy/>
 - GitHub: <https://github.com/AbdelrahmanElsaidElsawy>
-- Email: [a.sawy95@gmail.com](mailto:a.sawy95@gmail.com)
+- Email: [abdelrahman.elsaid.elsawy@gmail.com](mailto:abdelrahman.elsaid.elsawy@gmail.com)
 - Linktree: <https://linktr.ee/abdelrahman_elsaid_elsawy>
 
 ## Editing the site
 
-The site is a fully translated static page in five languages, built on
-[Bootstrap 3](https://getbootstrap.com/) with custom `css/style.css` and
-`css/timeline.css` stylesheets. No build step required:
+Layout inspired by <https://merielvonstein.com/>: a dark masthead carries the
+site title, page nav and flag switcher; below it a narrow sticky author column
+(photo, tagline, one-line bio, contact links, CV buttons) sits beside the topic
+panel, which is a **separate HTML page** per topic (`css/style.css`,
+`css/timeline.css`). Bootstrap 3 is still loaded for legacy grid helpers, but
+its `html { font-size: 10px }` is overridden back to 16px. No build step
+required.
 
-| Page | Language |
-| --- | --- |
-| `index.html` | English |
-| `index_de.html` | Deutsch |
-| `index_fr.html` | Français |
-| `index_tr.html` | Türkçe |
-| `index_ar.html` | العربية (RTL) |
+| Topic | EN | DE | FR | TR | AR |
+| --- | --- | --- | --- | --- | --- |
+| About | `index.html` | `index_de.html` | `index_fr.html` | `index_tr.html` | `index_ar.html` |
+| Skills | `skills.html` | `skills_de.html` | `skills_fr.html` | `skills_tr.html` | `skills_ar.html` |
+| Languages | `languages.html` | `languages_de.html` | … | … | … |
+| Courses | `courses.html` | `courses_de.html` | … | … | … |
+| Experience | `experience.html` | `experience_de.html` | … | … | … |
+| Studies | `studies.html` | `studies_de.html` | … | … | … |
 
-Each page's View/Download CV buttons serve the matching language PDF
-(designed + ATS). Switch languages via the flag switcher.
+CV buttons serve the matching language PDF (designed + ATS). The flag
+switcher jumps to the same topic in another language.
 
-1. Edit the pages (keep the five in sync when changing content)
+1. Edit the matching page(s); keep language variants in sync for shared changes
 2. Push to `main` — GitHub Pages republishes automatically
 
 ## CV
