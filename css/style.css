@@ -27,7 +27,7 @@
   --sans: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --masthead-h: 3.6rem;
-  --sidebar-w: 205px;
+  --sidebar-w: calc(205px + 3ch);
   --content-max: 985px;
   --wide-max: 1280px;
 }
@@ -293,6 +293,7 @@ hr {
   max-height: calc(100vh - var(--masthead-h) - 2.5rem);
   overflow-y: auto;
   padding: 0;
+  padding-inline-end: 3ch;
   font-family: var(--sans);
   z-index: 20;
 }
@@ -878,6 +879,7 @@ html[dir="rtl"] #timeline-studies .timeline-content {
 
   .sidebar {
     position: static;
+    padding-inline-end: 0;
     top: auto;
     width: 100%;
     max-height: none;
